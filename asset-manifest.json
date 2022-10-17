@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/anime_collection_tokped/static/css/main.42f533d7.css",
+    "main.js": "/anime_collection_tokped/static/js/main.acfa905f.js",
+    "index.html": "/anime_collection_tokped/index.html",
+    "main.42f533d7.css.map": "/anime_collection_tokped/static/css/main.42f533d7.css.map",
+    "main.acfa905f.js.map": "/anime_collection_tokped/static/js/main.acfa905f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42f533d7.css",
+    "static/js/main.acfa905f.js"
+  ]
+}
