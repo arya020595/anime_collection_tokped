@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header  from "./components/Header";
+import AnimeList from './components/Products';
+import { Routes, Route } from "react-router-dom";
+import AnimeDetail from './components/ProductDetail';
+import Collections from './components/Collections';
+import CollectionDetail from './components/CollectionDetail';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<AnimeList />} />
+        <Route path="product/:productId" element={<AnimeDetail />} />
+        <Route path="my-collection/" element={<Collections />} />
+        <Route path="my-collection/:collectionId" element={<CollectionDetail />} />
+      </Routes>
+    </>
   );
 }
 
