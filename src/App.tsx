@@ -12,9 +12,9 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<AnimeList />} />
-        <Route path="product/:productId" element={<AnimeDetail />} />
-        <Route path="my-collection/" element={<Collections />} />
-        <Route path="my-collection/:collectionId" element={<CollectionDetail />} />
+        <Route path="/product/:productId" element={<AnimeDetail />} />
+        <Route path="/my-collection" element={<Collections />} />
+        <Route path="/my-collection/:collectionId" element={<CollectionDetail />} />
       </Routes>
     </>
   );

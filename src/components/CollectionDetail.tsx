@@ -18,7 +18,6 @@ export default function CollectionDetail() {
   };
 
   const [collections, setCollections]: any[] = useState(getLocalItems());
-  const [items, setItems]: any[] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("collections", JSON.stringify(collections));
@@ -108,7 +107,7 @@ export default function CollectionDetail() {
             <tr key={index}>
               <td>{index + 1}</td>
               <td>
-                <img src={`${data.coverImage.medium}`} />
+                <img alt={data.title.romaji} src={`${data.coverImage.medium}`} />
               </td>
               <td>
                 <Link key={index} to={`/product/${data.id}`}>

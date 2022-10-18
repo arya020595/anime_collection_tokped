@@ -59,7 +59,7 @@ export default function AnimeList() {
             <div key={data.id} className="grid-item">
               <Link key={data.id} className="text-link" to={`/product/${data.id}`}>
                 <div className="card-image">
-                  <img src={`${data.coverImage.large}`} />
+                  <img alt={data.title.romaji} src={`${data.coverImage.large}`} />
                 </div>
               </Link>
               <div className="card-detail">

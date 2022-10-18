@@ -37,7 +37,7 @@ export default function AnimeDetail() {
         <div id="title-detail-page">{data.Media.title.romaji}</div>
 
         <div id="section-image-detail-page">
-            <img width="100%" src={`${data.Media.bannerImage}`} />
+            <img alt={data.Media.title.romaji} width="100%" src={`${data.Media.bannerImage}`} />
         </div>
 
         <div id="detail-detail-page">
