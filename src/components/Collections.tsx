@@ -5,6 +5,7 @@ import ModalFormEditCollection from "./ModalFormEditCollection";
 import ModalFormAddCollection from "./ModalFormAddCollection";
 
 export default function Collections() {
+  
   const getLocalItems = () => {
     let list = localStorage.getItem("collections");
 
@@ -19,13 +20,13 @@ export default function Collections() {
   const [openModal, setOpenModal] = useState(false);
   const [openModalAdd, setOpenModalAdd] = useState(false);
   const [dataDetail, setDataDetail] = useState({});
+  const default_cover_collection = 'https://deconova.eu/wp-content/uploads/2016/02/default-placeholder.png'
 
   useEffect(() => {
     localStorage.setItem("collections", JSON.stringify(collections));
   }, [collections]);
 
   useEffect(() => {
-    console.log("TERPNAGGIL KAKAK");
 
     setCollections(getLocalItems());
   }, [dataDetail]);
@@ -78,6 +79,7 @@ export default function Collections() {
         <thead>
           <tr>
             <th>#</th>
+            <th>Cover Anime</th>
             <th>Collection Name</th>
             <th>Action</th>
           </tr>
@@ -86,6 +88,14 @@ export default function Collections() {
           {Object.keys(collections).map((element: string, index: number) => (
             <tr key={index}>
               <td>{index + 1}</td>
+              <td>
+                {
+                  collections[element][0] ?  
+                    <img width={100} alt={collections[element][0].title.romaji} src={`${collections[element][0].coverImage.medium}`} />
+                  : 
+                    <img width={100} alt='default_cover_collection' src={`${default_cover_collection}`} />
+                }
+              </td>
               <td>
                 <Link key={index} to={`/my-collection/${index}`}>
                   {element.split("_").join(" ")}

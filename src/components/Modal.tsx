@@ -8,6 +8,7 @@ export default function Modal({
   closeModal: any;
   dataDetail: any;
 }) {
+  
   const getLocalItems = () => {
     let list = localStorage.getItem("collections");
 
@@ -59,7 +60,7 @@ export default function Modal({
         const copy = { ...current };
 
         // push value on existing key
-        copy[select_collection.value].push(dataDetail.id);
+        copy[select_collection.value].push(dataDetail);
 
         return copy;
       });
@@ -89,7 +90,7 @@ export default function Modal({
           // create copy of state object
           const copy = { ...current };
           // create new key with new value
-          copy[collection_name as keyof any] = [dataDetail.id];
+          copy[collection_name as keyof any] = [dataDetail];
 
           return copy;
         });

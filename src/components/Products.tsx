@@ -6,7 +6,7 @@ import Modal from "./Modal";
 import "../assets/Modal.css";
 
 const PRODUCTS = gql`
-  query Query($page: Int, $perPage: Int, $search: String) {
+  query GetProductList($page: Int, $perPage: Int, $search: String) {
     Page(page: $page, perPage: $perPage) {
       pageInfo {
         total

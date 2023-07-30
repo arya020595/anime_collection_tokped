@@ -1,4 +1,5 @@
 import '../assets/Header.css';
+import { Link } from "react-router-dom"
 
 export default function Header() {
 
@@ -6,8 +7,8 @@ export default function Header() {
         <nav className="nav">
             <div className="wrap-nav-link">
                 <div>
-                    <a href="/" className="nav-link">Home</a>
-                    <a href="/my-collection" className="nav-link">My Collection</a>
+                    <Link className="nav-link" to={'/'}>Home</Link>
+                    <Link className="nav-link" to={'/my-collection'}>My Collection</Link>
                 </div>
             </div>
         </nav>
