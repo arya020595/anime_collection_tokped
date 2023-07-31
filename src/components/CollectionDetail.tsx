@@ -1,7 +1,7 @@
-import "../assets/CollectionDetail.css"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
+import "../assets/Product.css";
 
 export default function CollectionDetail() {
   const { collectionId }: any = useParams()
@@ -17,6 +17,7 @@ export default function CollectionDetail() {
   }
 
   const [collections, setCollections]: any[] = useState(Object.values(getLocalItems())[collectionId])
+  const collection_name = Object.keys(getLocalItems())[collectionId]
   
   useEffect(() => {
     // create copy of state object
@@ -42,47 +43,37 @@ export default function CollectionDetail() {
   }
 
   return (
-    <div style={{ overflowX: "auto" }}>
+    <div style={{padding: "0 50px" }}>
       <div
         style={{
-          margin: "0 auto",
+          margin: "30px auto 0",
           textAlign: "center",
           fontSize: "18px",
           fontWeight: "600",
           padding: "20px 0",
         }}
       >
-        List Anime
+        My {collection_name} Collection
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Cover Image</th>
-            <th>Anime Title</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {collections.map((data: any, index: number) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>
-                <img alt={data.title.romaji} src={`${data.coverImage.medium}`} />
-              </td>
-              <td>
-                <Link key={index} to={`/product/${data.id}`}>
-                  {data.title.romaji}
-                </Link>
-              </td>
-              <td>
-                <button onClick={() => handleRemove(data.id)}>Remove</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="grid-container">
+        {collections.map((data: any, index: number) => (
+            <div key={data.id} className="grid-item">
+              <Link key={data.id} className="text-link" to={`/product/${data.id}`}>
+                <div className="card-image">
+                  <img alt={data.title.romaji} src={`${data.coverImage.large}`} />
+                </div>
+              </Link>
+              <div className="card-detail">
+                <div className="card-detail-text">{data.title.romaji}</div>
+                <div style={{ marginTop: "10px" }}>
+                  <button style={{backgroundColor: "#f44336"}} onClick={() => handleRemove(data.id)}>Remove</button>
+                </div>
+              </div>
+            </div>
+          )
+        )}
+      </div>
     </div>
   )
 }

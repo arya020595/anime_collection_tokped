@@ -41,12 +41,12 @@ export default function ModalFormEditCollection({
       let name_collection = split_name.join("_");
 
       if (collections.hasOwnProperty(collection_name)) {
-        alert("Collection name already exist! Please put another name");
+        alert("Collection Name Already Exist! Please Put Another Name");
         return;
       }
 
       if (format.test(name_collection)) {
-        alert("Collection name can't have special char");
+        alert("Collection Name Can't Have Special Character!");
         return;
       }
 

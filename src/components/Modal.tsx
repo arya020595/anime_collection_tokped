@@ -49,7 +49,7 @@ export default function Modal({
     ) as HTMLInputElement;
 
     if (select_collection.value !== "new_collection") {
-      if (collections[select_collection.value].includes(dataDetail.id)) {
+      if (collections[select_collection.value].some((e: any) => e.id === dataDetail.id)) {
         alert("The anime already exist! Please put another anime");
 
         return;
@@ -77,12 +77,12 @@ export default function Modal({
         let collection_name = split_name.join("_");
 
         if (collections.hasOwnProperty(collection_name)) {
-          alert("Collection name already exist! Please put another name");
+          alert("Collection Name Already Exist! Please Put Another Name");
           return;
         }
 
         if (format.test(collection_name)) {
-          alert("Collection name can't have special char");
+          alert("Collection Name Can't Have Special Character!");
           return;
         }
 
@@ -134,25 +134,25 @@ export default function Modal({
           className="modal-title"
           style={{ textAlign: "center", fontWeight: 600 }}
         >
-          Add Anime to My Collection
+          Add Anime to My Collections
         </div>
 
         <div id="modal-body" style={{ marginTop: "35px" }}>
           <div style={{ display: "flex" }}>
-            <div style={{ display: "flex", width: "150px" }}>Anime Title</div>
+            <div style={{ display: "flex", width: "100%"}}>Anime Title</div>
             <div
-              style={{ display: "flex", width: "150px", marginLeft: "50px" }}
+              style={{ display: "flex", width: "100%" }}
             >
               {dataDetail.title.romaji}
             </div>
           </div>
 
           <div style={{ display: "flex", padding: "10px 0" }}>
-            <div style={{ display: "flex", width: "150px" }}>
+            <div style={{ display: "flex", width: "100%" }}>
               Collection List
             </div>
             <div
-              style={{ display: "flex", width: "150px", marginLeft: "50px" }}
+              style={{ display: "flex", width: "100%" }}
             >
               <select
                 onChange={handleChange}
@@ -161,7 +161,7 @@ export default function Modal({
                 style={{ width: "100%" }}
               >
                 <option value="new_collection">
-                  -- Add to new collection --
+                  -- Add anime to new collection --
                 </option>
                 {Object.keys(collections).map((element: any, index: any) => (
                   <option key={index} value={element}>
@@ -173,11 +173,11 @@ export default function Modal({
           </div>
 
           <div id="new_collection" style={{ display: "none" }}>
-            <div style={{ display: "flex", width: "150px" }}>
+            <div style={{ display: "flex", width: "100%" }}>
               Create New Collection
             </div>
             <div
-              style={{ display: "flex", width: "150px", marginLeft: "50px" }}
+              style={{ display: "flex", width: "100%" }}
             >
               <input
                 style={{ width: "100%" }}

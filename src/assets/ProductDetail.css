@@ -29,6 +29,10 @@
   line-height: 1.5;
 }
 
+#detail-detail-page > div > span {
+  font-weight: 600;
+}
+
 
 @media (max-width: 800px) {
   .flex-container {

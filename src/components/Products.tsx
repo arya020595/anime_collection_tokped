@@ -52,7 +52,7 @@ export default function AnimeList() {
   }
 
   return (
-    <div>
+    <>
       <div className="grid-container">
         {data.Page.media.map(
           (data:any) => (
@@ -63,7 +63,7 @@ export default function AnimeList() {
                 </div>
               </Link>
               <div className="card-detail">
-                {data.title.romaji}
+                <div className="card-detail-text">{data.title.romaji}</div>
                 <div style={{ marginTop: "10px" }}>
                   <button onClick={() => {
                     setOpenModal(true)
@@ -108,6 +108,6 @@ export default function AnimeList() {
       {
         openModal && <Modal closeModal={setOpenModal} dataDetail={dataDetail}/>
       }
-    </div>
+    </>
   );
 }

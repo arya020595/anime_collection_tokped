@@ -34,19 +34,19 @@ export default function ModalFormAddCollection({
     ) as HTMLInputElement;
 
     if (collection_name.value === "") {
-      alert("Field new collection can't blank");
+      alert("Field New Collection Can't Blank!");
     } else {
       let format = /[!@#$%^&*()_+\-=\]{};':"\\|,.<>?]+/;
       let split_name = collection_name.value.trim().split(" ");
       let name_collection = split_name.join("_");
 
       if (collections.hasOwnProperty(collection_name)) {
-        alert("Collection name already exist! Please put another name");
+        alert("Collection Name Already Exist! Please Put Another Name");
         return;
       }
 
       if (format.test(name_collection)) {
-        alert("Collection name can't have special char");
+        alert("Collection Name Can't Have Special Character!");
         return;
       }
 
@@ -88,16 +88,16 @@ export default function ModalFormAddCollection({
           className="modal-title"
           style={{ textAlign: "center", fontWeight: 600 }}
         >
-          Change Name Collection
+          Create New Collection
         </div>
 
         <div id="modal-body" style={{ marginTop: "35px" }}>
           <div id="new_collection" style={{ display: "flex" }}>
-            <div style={{ display: "flex", width: "150px" }}>
+            <div style={{ display: "flex", width: "100%" }}>
               Name Collection
             </div>
             <div
-              style={{ display: "flex", width: "150px", marginLeft: "50px" }}
+              style={{ display: "flex", width: "100%", marginLeft: "50px" }}
             >
               <input
                 style={{ width: "100%" }}

@@ -32,7 +32,7 @@ export default function Collections() {
   }, [dataDetail]);
 
   const handleRemove = (element: string) => {
-    let text = `Are you sure delete collection "${element
+    let text = `Are you sure remove collection "${element
       .split("_")
       .join(" ")}"?`;
 
@@ -52,7 +52,7 @@ export default function Collections() {
   };
 
   return (
-    <div style={{ overflowX: "auto" }}>
+    <div style={{padding: "0 50px"}}>
       <div
         style={{
           margin: "0 auto",
@@ -62,60 +62,59 @@ export default function Collections() {
           padding: "20px 0",
         }}
       >
-        List Collections
       </div>
 
       <div style={{ marginBottom: "10px" }}>
-        <button
+        <button className="button-action" style={{backgroundColor: "#4f74c8"}}
           onClick={() => {
             setOpenModalAdd(true);
           }}
         >
-          Add Collection
+          Create New Collection
         </button>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Cover Anime</th>
-            <th>Collection Name</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(collections).map((element: string, index: number) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>
-                {
-                  collections[element][0] ?  
-                    <img width={100} alt={collections[element][0].title.romaji} src={`${collections[element][0].coverImage.medium}`} />
-                  : 
-                    <img width={100} alt='default_cover_collection' src={`${default_cover_collection}`} />
-                }
-              </td>
-              <td>
-                <Link key={index} to={`/my-collection/${index}`}>
-                  {element.split("_").join(" ")}
-                </Link>
-              </td>
-              <td>
-                <button
-                  onClick={() => {
-                    setOpenModal(true);
-                    setDataDetail(element);
-                  }}
-                >
-                  Edit
-                </button>{" "}
-                | <button onClick={() => handleRemove(element)}>Remove</button>
-              </td>
+      <div style={{overflowX: "auto"}}>
+        <table>
+          <thead>
+            <tr>
+              <th>Cover Collection</th>
+              <th>Collection Name</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {Object.keys(collections).map((element: string, index: number) => (
+              <tr key={index}>
+                <td>
+                  {
+                    collections[element][0] ?  
+                      <img width={100} alt={collections[element][0].title.romaji} src={`${collections[element][0].coverImage.medium}`} />
+                    : 
+                      <img width={100} alt='default_cover_collection' src={`${default_cover_collection}`} />
+                  }
+                </td>
+                <td>
+                  <Link style={{fontSize: "large"}} key={index} to={`/my-collection/${index}`}>
+                    {element.split("_").join(" ")}
+                  </Link>
+                </td>
+                <td>
+                  <button className="button-action" style={{backgroundColor: "#e7e7e7", color: "#333"}}
+                    onClick={() => {
+                      setOpenModal(true);
+                      setDataDetail(element);
+                    }}
+                  >
+                    Edit
+                  </button>{" "}
+                  <button className="button-action" style={{backgroundColor: "#f44336"}} onClick={() => handleRemove(element)}>Remove</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {openModal && (
         <ModalFormEditCollection
