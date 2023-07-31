@@ -40,7 +40,7 @@ export default function ModalFormAddCollection({
       let split_name = collection_name.value.trim().split(" ");
       let name_collection = split_name.join("_");
 
-      if (collections.hasOwnProperty(collection_name)) {
+      if (collections.hasOwnProperty(collection_name.value)) {
         alert("Collection Name Already Exist! Please Put Another Name");
         return;
       }
