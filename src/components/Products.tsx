@@ -30,7 +30,7 @@ const PRODUCTS = gql`
 `;
 
 export default function AnimeList() {
-  const PER_PAGE = 14;
+  const PER_PAGE = 15;
   const [page, setPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
   const [dataDetail, setDataDetail] = useState({});

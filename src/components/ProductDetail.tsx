@@ -32,7 +32,7 @@ export default function AnimeDetail() {
     if (error) return <p>Error</p>;
 
   return (
-    <div id="wrapper-detail-page">
+    <div className="container" style={{margin: "30px auto 0"}}>
 
         <div id="title-detail-page">{data.Media.title.romaji}</div>
 

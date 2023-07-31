@@ -52,7 +52,7 @@ export default function Collections() {
   };
 
   return (
-    <div style={{padding: "0 50px"}}>
+    <div className="container">
       <div
         style={{
           margin: "0 auto",

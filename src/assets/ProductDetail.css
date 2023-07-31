@@ -1,6 +1,6 @@
 #wrapper-detail-page {
   /* width: 1000px; */
-  margin: 30px 300px;
+  margin: 30px 0;
 }
 
 #section-image-detail-page {
@@ -41,6 +41,28 @@
 
   #wrapper-detail-page {
     /* width: 1000px; */
-    margin: 30px 30px;
+    margin: 30px 0;
+  }
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
   }
 }
