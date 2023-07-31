@@ -41,9 +41,9 @@ export default function AnimeDetail() {
         </div>
 
         <div id="detail-detail-page">
-            <div>Genres   : {data.Media.genres.map((genre:string, index:number) => `${genre}${index === data.Media.genres.length - 1 ? "" : ", "}`)}</div>
-            <div>Episodes : {data.Media.episodes} eps</div>
-            <div>Rating   : {data.Media.averageScore}%</div>
+            <div><span>Genres:</span> {data.Media.genres.map((genre:string, index:number) => `${genre}${index === data.Media.genres.length - 1 ? "" : ", "}`)}</div>
+            <div><span>Episodes:</span> {data.Media.episodes} eps</div>
+            <div><span>Rating:</span> {data.Media.averageScore}%</div>
         </div>
     
         <div id="description-detail-page">
